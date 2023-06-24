@@ -8,6 +8,7 @@ import About from './pages/About';
 import Service from './pages/Service';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
+import Login from './pages/Login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,7 @@ root.render(
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="service" element={<Service />} />
+          <Route path="login" element={<Login />} />
         </Route>
       </Routes>
     </BrowserRouter>
