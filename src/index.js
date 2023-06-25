@@ -9,6 +9,7 @@ import Service from './pages/Service';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import NotFound from './pages/NotFound';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,8 @@ root.render(
           <Route path="service" element={<Service />} />
           <Route path="login" element={<Login />} />
         </Route>
+        <Route path='*' element={<NotFound />} />
+        {/* <Route path='*' element={<Navigate to="/" replace />} /> */}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
