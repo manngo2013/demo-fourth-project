@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
+import Login2 from './pages/Login2';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,7 +21,7 @@ root.render(
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="service" element={<Service />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login2 />} />
         </Route>
         <Route path='*' element={<NotFound />} />
         {/* <Route path='*' element={<Navigate to="/" replace />} /> */}
