@@ -7,7 +7,7 @@ function Login2(props) {
 
   const handleLogin = () => {
     if (isLoggin) {
-      navigate("/");
+      navigate("/", { replace: true });
     }
     return null;
   };
