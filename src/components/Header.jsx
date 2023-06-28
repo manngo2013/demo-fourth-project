@@ -32,8 +32,8 @@ function Header(props) {
             <NavLink to="/service" className="nav-link">
               Service
             </NavLink>
-            <NavLink to="/works" className="nav-link">
-              Our Works
+            <NavLink to="/products" className="nav-link">
+              Our Products
             </NavLink>
             <NavLink to="/news" className="nav-link">
               News & Events
