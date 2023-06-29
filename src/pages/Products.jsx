@@ -1,6 +1,7 @@
-import React from "react";
+import queryString from "query-string";
+import React, { useState } from "react";
 import { Nav, Table } from "react-bootstrap";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 
 function Products(props) {
   const products = [
@@ -35,22 +36,35 @@ function Products(props) {
   ];
 
   let [searchParams, setSearchParams] = useSearchParams();
+  let location = useLocation();
+  let [filteredStatus, setFilteredStatus] = useState(() => {
+    const params = queryString.parse(location.search);
+    return params.status || "all";
+  });
 
   const handleShowAll = () => {
+    setFilteredStatus("all");
     setSearchParams({ status: "all" });
   };
 
   const handleShowActive = () => {
+    setFilteredStatus("Active");
     setSearchParams({ status: "Active" });
   };
 
   const handleShowInActive = () => {
+    setFilteredStatus("InActive");
     setSearchParams({ status: "InActive" });
   };
 
   const handleShowNew = () => {
+    setFilteredStatus("New");
     setSearchParams({ status: "New" });
   };
+
+  const renderedProductList = products.filter(
+    (product) => filteredStatus === "all" || filteredStatus === product.status
+  );
 
   return (
     <div>
@@ -91,7 +105,7 @@ function Products(props) {
           </tr>
         </thead>
         <tbody>
-          {products.map((product, index) => {
+          {renderedProductList.map((product, index) => {
             return (
               <tr key={product.id}>
                 <td>{product.id}</td>
