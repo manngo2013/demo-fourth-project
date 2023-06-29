@@ -1,6 +1,6 @@
 import React from "react";
-import { Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Nav, Table } from "react-bootstrap";
+import { Link, useSearchParams } from "react-router-dom";
 
 function Products(props) {
   const products = [
@@ -34,9 +34,51 @@ function Products(props) {
     },
   ];
 
+  let [searchParams, setSearchParams] = useSearchParams();
+
+  const handleShowAll = () => {
+    setSearchParams({ status: "all" });
+  };
+
+  const handleShowActive = () => {
+    setSearchParams({ status: "Active" });
+  };
+
+  const handleShowInActive = () => {
+    setSearchParams({ status: "InActive" });
+  };
+
+  const handleShowNew = () => {
+    setSearchParams({ status: "New" });
+  };
+
   return (
     <div>
       <h1>Our Products</h1>
+      <Nav variant="pills" defaultActiveKey="#">
+        <Nav.Item>
+          <Nav.Link href="#" onClick={handleShowAll}>
+            Show All
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1" onClick={handleShowActive}>
+            Show Active
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2" onClick={handleShowInActive}>
+            Show InActive
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-3" onClick={handleShowNew}>
+            Show New
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
+      <br />
+
       <Table striped bordered hover variant="light">
         <thead>
           <tr>
